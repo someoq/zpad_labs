@@ -1,0 +1,5 @@
+# Папка, куди наш скрипт буде скачувати 27 файлів NOAA (Частина 1)
+vhi_data/
+# Великий датасет для Частини 2
+household_power_consumption.txt
+household_power_consumption.zip

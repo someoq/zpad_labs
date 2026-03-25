@@ -205,3 +205,25 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Системні файли
+.DS_Store
+
+# Кеш та налаштування IDE
+.idea/
+.vscode/
+*.swp
+
+# Теки збірки та середовища
+bin/
+build/
+__pycache__/
+venv/
+.env
+.ipynb_checkpoints/
+
+# Файли з даними
+*.txt
+*.csv
+*.json
+*.log
