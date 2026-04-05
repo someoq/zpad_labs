@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Віртуальне середовище
+venv/
+ENV/
+env/
+
+# Streamlit
+.streamlit/
+
+# Системні файли
+.DS_Store
+Thumbs.db
