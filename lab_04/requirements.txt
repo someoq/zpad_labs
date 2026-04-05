@@ -1,6 +1,3 @@
 numpy
 matplotlib
 scipy
-ipympl
-pandas
-jupyter
