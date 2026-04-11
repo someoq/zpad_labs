@@ -1,4 +1,4 @@
 #!/bin/bash
 echo "Запускаємо програму..."
 cd build
-./Lab6_OpenCV
+./Lab7_OpenCV
