@@ -16,7 +16,7 @@ void applyFilters(cv::Mat& frame, int mode) {
 }
 
 int main() {
-    cv::VideoCapture cap(0);
+    cv::VideoCapture cap(0, cv::CAP_V4L2);
     if (!cap.isOpened()) {
         std::cerr << "Помилка: Неможливо відкрити веб-камеру!" << std::endl;
         return -1;
