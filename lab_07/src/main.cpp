@@ -27,40 +27,55 @@ int main() {
     std::cout << "1-4: Фільтри" << std::endl;
     std::cout << "F: Детекція обличчя (On/Off)" << std::endl;
     std::cout << "ESC: Вихід" << std::endl;
-
-    FaceDetector faceDetector("deploy.prototxt", "res10_300x300_ssd_iter_140000.caffemodel");
+    FaceDetector faceDetector("../deploy.prototxt", "../res10_300x300_ssd_iter_140000.caffemodel");
     faceDetector.start();
 
-    bool faceMode = false;
-    int currentFilterMode = 1;
+    bool isFaceDetectionActive = false;
+    int activeFilter = 1;
 
     cv::namedWindow("Lab 7: Camera & Face Detection", cv::WINDOW_AUTOSIZE);
+    int frameTickCount = 0;
+    double currentFpsValue = 0.0;
+    int64 timeStart = cv::getTickCount();
 
     while (true) {
         cv::Mat frame;
         cap >> frame;
         if (frame.empty()) break;
 
-        if (faceMode) {
+        if (isFaceDetectionActive) {
             faceDetector.setFrame(frame);
         }
 
-        applyFilters(frame, currentFilterMode);
+        applyFilters(frame, activeFilter);
 
-        if (faceMode) {
+        if (isFaceDetectionActive) {
             faceDetector.drawDetections(frame);
         }
 
+        frameTickCount++;
+        int64 timeNow = cv::getTickCount();
+        double timeElapsed = (timeNow - timeStart) / cv::getTickFrequency();
+
+        if (timeElapsed >= 0.5) {
+            currentFpsValue = frameTickCount / timeElapsed;
+            frameTickCount = 0;
+            timeStart = timeNow;
+        }
+
+        std::string fpsString = cv::format("FPS: %.1f", currentFpsValue);
+        cv::putText(frame, fpsString, cv::Point(20, 40),
+                    cv::FONT_HERSHEY_COMPLEX, 0.7, cv::Scalar(255, 100, 0), 2);
         cv::imshow("Lab 7: Camera & Face Detection", frame);
 
         int key = cv::waitKey(1) & 0xFF;
         if (key == 27) {
             break;
         } else if (key >= '1' && key <= '4') {
-            currentFilterMode = key - '0';
+            activeFilter = key - '0';
         } else if (key == 'f' || key == 'F') {
-            faceMode = !faceMode;
-            std::cout << "Режим детекції обличчя: " << (faceMode ? "УВІМКНЕНО" : "ВИМКНЕНО") << std::endl;
+            isFaceDetectionActive = !isFaceDetectionActive;
+            std::cout << "Режим детекції обличчя: " << (isFaceDetectionActive ? "УВІМКНЕНО" : "ВИМКНЕНО") << std::endl;
         }
     }
 

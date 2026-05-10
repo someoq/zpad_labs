@@ -1,4 +1,4 @@
 #!/bin/bash
-echo "Запускаємо програму..."
-cd build
-./Lab7_OpenCV
+export LIBGL_ALWAYS_SOFTWARE=1
+echo "Запуск програми:"
+./build/Lab7_OpenCV
