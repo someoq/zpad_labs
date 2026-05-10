@@ -1,3 +1,0 @@
-/mnt/c/Users/anakin skywalker/zpad_labs/lab_06/build/CMakeFiles/Lab6_OpenCV.dir
-/mnt/c/Users/anakin skywalker/zpad_labs/lab_06/build/CMakeFiles/edit_cache.dir
-/mnt/c/Users/anakin skywalker/zpad_labs/lab_06/build/CMakeFiles/rebuild_cache.dir
