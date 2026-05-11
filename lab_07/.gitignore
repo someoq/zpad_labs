@@ -1,0 +1,29 @@
+# CMake та збірка
+build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Об'єктні та виконувані файли
+*.o
+*.out
+*.exe
+*.dll
+*.so
+*.a
+Lab7_OpenCV
+lab7_cv
+
+# IDE та редактори
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Логи
+*.log
+
+*.prototxt
+*.caffemodel
