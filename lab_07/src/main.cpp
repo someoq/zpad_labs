@@ -27,7 +27,7 @@ int main() {
     std::cout << "1-4: Фільтри" << std::endl;
     std::cout << "F: Детекція обличчя (On/Off)" << std::endl;
     std::cout << "ESC: Вихід" << std::endl;
-    FaceDetector faceDetector("../deploy.prototxt", "../res10_300x300_ssd_iter_140000.caffemodel");
+    FaceDetector faceDetector("deploy.prototxt", "res10_300x300_ssd_iter_140000.caffemodel");
     faceDetector.start();
 
     bool isFaceDetectionActive = false;
