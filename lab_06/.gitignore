@@ -1,0 +1,25 @@
+# CMake та збірка
+build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+
+# Об'єктні та виконувані файли
+*.o
+*.out
+*.exe
+*.dll
+*.so
+*.a
+
+# IDE та редактори
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Логи та тимчасові файли
+*.log
+*.tmp
